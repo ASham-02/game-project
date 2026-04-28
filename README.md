@@ -9,9 +9,9 @@ The user should be able to click cards to reveal them, try to find matching pair
 ## HTML
 
 - [ ] Game title
-- [ ] Start / restart button
+- [ ] Start 
+- [ ] Restart button
 - [ ] Moves display
-- [ ] Timer display
 - [ ] Card grid container
 - [ ] Individual card elements created with JavaScript
 - [ ] Win message section
@@ -25,7 +25,6 @@ The user should be able to click cards to reveal them, try to find matching pair
   - [ ] `.card--flipped`
   - [ ] `.card--matched`
   - [ ] `#moves`
-  - [ ] `#timer`
   - [ ] `#restartButton`
 
 ## CSS / SCSS
