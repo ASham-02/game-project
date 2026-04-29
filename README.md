@@ -8,24 +8,25 @@ The user should be able to click cards to reveal them, try to find matching pair
 
 ## HTML
 
-- [ ] Game title
-- [ ] Start 
-- [ ] Restart button
-- [ ] Moves display
-- [ ] Card grid container
-- [ ] Individual card elements created with JavaScript
+- [X] Game title
+- [X] Start 
+- [X] Restart button
+- [X] Moves display
+- [X] Card grid container
+- [X] Individual card elements created with JavaScript
 - [ ] Win message section
 - [ ] Classes and IDs:
-  - [ ] `.game`
-  - [ ] `.game__header`
-  - [ ] `.game__info`
-  - [ ] `.game__grid`
-  - [ ] `.game__message`
+  - [X] `.game`
+  - [X] `.game__header`
+  - [X] `.game__info`
+  - [X] `.game__grid`
+  - [X] `.game__stats`
+  - [X] `#gameGrid`
   - [ ] `.card`
   - [ ] `.card--flipped`
   - [ ] `.card--matched`
-  - [ ] `#moves`
-  - [ ] `#restartButton`
+  - [X] `#moves`
+  - [X] `#restartButton`
 
 ## CSS / SCSS
 
@@ -42,8 +43,8 @@ The user should be able to click cards to reveal them, try to find matching pair
 
 ## JS LOGIC
 
-- [ ] Create an array of card values
-- [ ] Duplicate the values so every card has a pair
+- [X] Create an array of card values
+- [X] Duplicate the values so every card has a pair
 - [ ] Shuffle the cards randomly
 - [ ] Create the card elements using JavaScript
 - [ ] Add click events to each card
