@@ -1,3 +1,9 @@
+.game {
+  color: black;
+  background-color: grey;
+  border: 1px solid red;
+}
+
 .game__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

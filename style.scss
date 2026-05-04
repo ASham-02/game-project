@@ -1,4 +1,9 @@
 // sass --watch style.scss output.css
+.game {
+  color: black;
+  background-color: grey;
+  border: 1px solid red;
+}
 
 .game__grid {
   display: grid;
