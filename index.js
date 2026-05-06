@@ -24,9 +24,20 @@ let secondCard = null;
 // Creates the move counter variable
 let moves = 0;
 
+// Stops the player clicking extra cards while two wrong cards are waiting to flip back.
+let lockBoard = false;
+
 // Create a funtion to activate when card gets clicked
 const handleCardClick = (event) => {
+  // Stops clicks while unmatched cards are waiting to flip back.
+  if (lockBoard) return;
+
   const clickedCard = event.target;
+
+  // Stops the same card being clicked twice.
+  if (clickedCard === firstCard) return;
+  // Stops already matched cards being clicked again.
+  if (clickedCard.classList.contains("card--matched")) return;
 
   clickedCard.textContent = clickedCard.dataset.value;
 
@@ -35,8 +46,10 @@ const handleCardClick = (event) => {
   } else {
     secondCard = clickedCard;
 
-    updateMoves();      // count the attempt
-    checkForMatch();    // compare cards
+    // count the attempt
+    updateMoves();
+    // compare cards
+    checkForMatch();
   }
 };
 
@@ -45,12 +58,16 @@ const checkForMatch = () => {
   if (firstCard.dataset.value === secondCard.dataset.value) {
     console.log("Match!");
 
+    firstCard.classList.add("card--matched");
+    secondCard.classList.add("card--matched");
+
     // Reset selection so player can continue
     firstCard = null;
     secondCard = null;
-
   } else {
     console.log("Not a match!");
+
+    lockBoard = true;
 
     // Flip cards back after 1 second
     setTimeout(() => {
@@ -59,6 +76,7 @@ const checkForMatch = () => {
 
       firstCard = null;
       secondCard = null;
+      lockBoard = false;
     }, 1000);
   }
 };
@@ -95,6 +113,32 @@ const createBoard = () => {
     card.addEventListener("click", handleCardClick);
   });
 };
+
+const restartButton = document.querySelector("#restartButton");
+
+const restartGame = () => {
+  // Reset selected cards
+  firstCard = null;
+  secondCard = null;
+
+  // Reset move counter
+  moves = 0;
+
+  // Unlock the board
+  lockBoard = false;
+
+  // Update moves display back to 0
+  document.querySelector("#moves").textContent = moves;
+
+  // Clear all cards from the grid
+  gameGrid.innerHTML = "";
+
+  // Create a brand new shuffled board
+  createBoard();
+};
+
+// Add click event AFTER function exists
+restartButton.addEventListener("click", restartGame);
 
 // This starts the game board creation when the page loads.
 createBoard();
