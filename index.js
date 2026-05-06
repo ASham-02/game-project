@@ -39,6 +39,7 @@ const handleCardClick = (event) => {
   // Stops already matched cards being clicked again.
   if (clickedCard.classList.contains("card--matched")) return;
 
+  // Checks that the first card value is the same as the second value card
   clickedCard.textContent = clickedCard.dataset.value;
 
   if (firstCard === null) {
