@@ -97,4 +97,17 @@ body {
   font-weight: bold;
 }
 
+@media (max-width: 500px) {
+  .game__title {
+    font-size: 1.5rem;
+  }
+  .card {
+    font-size: 1rem;
+  }
+  .game__info {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
 /*# sourceMappingURL=output.css.map */
