@@ -1,18 +1,117 @@
 // sass --watch style.scss output.css
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #1e1e2f;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
 .game {
-  color: black;
-  background-color: grey;
-  border: 1px solid red;
+  width: 100%;
+  max-width: 500px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.game__header {
+  text-align: center;
+}
+
+.game__title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.game__instructions {
+  color: #cccccc;
+}
+
+// ======================
+// GAME INFO
+// ======================
+
+.game__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.game__stats {
+  display: flex;
+  gap: 20px;
+}
+
+.game__button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+
+  background-color: #411a6e;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.game__button:hover {
+  transform: scale(1.05);
 }
 
 .game__grid {
   display: grid;
+
   grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+
+  gap: 12px;
 }
 
 .card {
   aspect-ratio: 1;
-  font-size: 1.5rem;
+
+  border: none;
+  border-radius: 12px;
+
+  background-color: #2d2d44;
+  color: white;
+
+  font-size: 1.2rem;
+  font-weight: bold;
+
   cursor: pointer;
+
+  transition: 0.3s ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.card:hover {
+  background-color: #3d3d5c;
+}
+
+.card--matched {
+  background-color: rgb(155, 63, 114);
+  cursor: default;
+}
+
+.game__message {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
