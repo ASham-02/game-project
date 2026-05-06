@@ -62,8 +62,11 @@ const checkForMatch = () => {
   if (firstCard.dataset.value === secondCard.dataset.value) {
     console.log("Match!");
 
+    // Add to the matched pairs when found
     firstCard.classList.add("card--matched");
     secondCard.classList.add("card--matched");
+    matchedPairs++;
+    checkWin();
 
     // Reset selection so player can continue
     firstCard = null;
