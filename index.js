@@ -124,7 +124,8 @@ const createBoard = () => {
 // This creates a win message when the game is completed
 const checkWin = () => {
   if (matchedPairs === cardValues.length) {
-    document.querySelector("#message").textContent = `You won in ${moves} moves!`;
+    document.querySelector("#message").textContent =
+      `You won in ${moves} moves!`;
   }
 };
 
@@ -149,6 +150,10 @@ const restartGame = () => {
 
   // Create a brand new shuffled board
   createBoard();
+
+  // Resets the pair counter to 0
+  matchedPairs = 0;
+  document.querySelector("#message").textContent = "";
 };
 
 // Add click event AFTER function exists
