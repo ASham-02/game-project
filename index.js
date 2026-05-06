@@ -27,6 +27,9 @@ let moves = 0;
 // Stops the player clicking extra cards while two wrong cards are waiting to flip back.
 let lockBoard = false;
 
+// Checks the number of matched pairs
+let matchedPairs = 0;
+
 // Create a funtion to activate when card gets clicked
 const handleCardClick = (event) => {
   // Stops clicks while unmatched cards are waiting to flip back.
