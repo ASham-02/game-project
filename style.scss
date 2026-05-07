@@ -74,8 +74,10 @@ body {
   cursor: pointer;
 }
 
-.game__button:hover {
-  transform: scale(1.05);
+  #restartButton:hover {
+  transform: translateY(-2px);
+
+  background-color: #524DA8;
 }
 
 .game__grid {
