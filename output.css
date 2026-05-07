@@ -75,9 +75,6 @@ body {
   border: none;
   border-radius: 12px;
   background-color: #2d2d44;
-  color: white;
-  font-size: 1.2rem;
-  font-weight: bold;
   cursor: pointer;
   transition: 0.3s ease;
   display: flex;
@@ -90,7 +87,7 @@ body {
 }
 
 .card--matched {
-  background-color: rgb(155, 63, 114);
+  background-color: #524DA8;
   cursor: default;
 }
 

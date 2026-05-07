@@ -1,4 +1,5 @@
 const gameGrid = document.querySelector("#gameGrid");
+const restartButton = document.querySelector("#restartButton");
 
 const cardValues = [
   `Charmander.png`,
@@ -18,11 +19,8 @@ const shuffleCards = (deck) => {
 
 let firstCard = null;
 let secondCard = null;
-
 let moves = 0;
-
 let lockBoard = false;
-
 let matchedPairs = 0;
 
 const handleCardClick = (event) => {
@@ -101,8 +99,6 @@ const checkWin = () => {
       `You won in ${moves} moves!`;
   }
 };
-
-const restartButton = document.querySelector("#restartButton");
 
 const restartGame = () => {
   firstCard = null;
