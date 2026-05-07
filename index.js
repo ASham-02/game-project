@@ -161,3 +161,13 @@ restartButton.addEventListener("click", restartGame);
 
 // This starts the game board creation when the page loads.
 createBoard();
+
+// include precise wording for the correct functions
+// make sure to know the level of detail for different audiences 
+// highlighting parts of code is useful for explaining the code
+// clear up comments when pushing it to github
+// add the comments to the ReadMe
+
+
+// add images to the cards 
+// make the button look nice

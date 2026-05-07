@@ -60,3 +60,26 @@ The user should be able to click cards to reveal them, try to find matching pair
 - [ ] Show a win message when the game is complete
 - [ ] Restart the game without refreshing the page
 
+
+Precise Technical Language
+
+Use correct terminology to signal mastery: “parameters” (function definition) vs. “arguments” (function call), “array” vs. “list”
+Small word choices accumulate to show solid understanding of the language and concepts
+Code Highlighting During Walkthroughs
+
+Pinpointing specific code focuses both speaker and listener on the same thing simultaneously
+Aids the explainer’s recall and prevents the listener from getting distracted by surrounding code
+Comments vs. README Documentation
+
+Excessive inline comments are a first-draft tool, not production practice
+Move explanations into the README instead:
+Reinforces ability to articulate logic (useful interview prep)
+Shows interviewers how you think and solve problems via GitHub portfolio
+Keeps code clean and readable
+Production comments reserved for genuinely complex or unusual library/framework usage
+Can link out to a README section rather than inline explanation
+Next Steps
+
+Clean up code and improve button UI
+Add images to the game for a UI/UX bump
+Move inline comments into README, explaining each function’s purpose there

@@ -37,9 +37,6 @@ body {
   margin-bottom: 10px;
 }
 
-.game__instructions {
-  color: #cccccc;
-}
 
 .game__info {
   display: flex;
@@ -113,6 +110,8 @@ body {
   font-weight: bold;
   align-items: center;
 }
+
+
 
 
 @media (max-width: 500px) {

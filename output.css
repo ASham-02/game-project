@@ -32,10 +32,6 @@ body {
   margin-bottom: 10px;
 }
 
-.game__instructions {
-  color: #cccccc;
-}
-
 .game__info {
   display: flex;
   justify-content: space-between;
