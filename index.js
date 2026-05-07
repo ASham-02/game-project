@@ -3,7 +3,7 @@ const gameGrid = document.querySelector("#gameGrid");
 
 // This array stores the unique card values.
 // Each value will later appear twice so the player can find matching pairs.
-const cardValues = ["Pair1", "Pair2", "Pair3", "Pair4"];
+const cardValues = ["Charmander", "Bulbasaur", "Squirtle", "Pikachu"];
 
 // This function creates the full deck of cards.
 // We use the spread operator (...) to copy the cardValues array twice.
