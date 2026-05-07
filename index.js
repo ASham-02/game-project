@@ -1,8 +1,5 @@
-// This finds the card grid in the HTML.
 const gameGrid = document.querySelector("#gameGrid");
 
-// This array stores the unique card values.
-// Each value will later appear twice so the player can find matching pairs.
 const cardValues = [
   `Charmander.png`,
   `Bulbasaur.png`,
@@ -10,41 +7,30 @@ const cardValues = [
   `Pikachu.png`,
 ];
 
-// This function creates the full deck of cards.
-// We use the spread operator (...) to copy the cardValues array twice.
 const createDeck = () => {
   return [...cardValues, ...cardValues];
 };
 
-// This creates a function to shuffle the cards in a random order,
-// So they don't display in the same position
 const shuffleCards = (deck) => {
   return deck.sort(() => Math.random() - 0.5);
 };
 
-// Creates the variables that remember which cards the player picks
+
 let firstCard = null;
 let secondCard = null;
 
-// Creates the move counter variable
 let moves = 0;
 
-// Stops the player clicking extra cards while two wrong cards are waiting to flip back.
 let lockBoard = false;
 
-// Checks the number of matched pairs
 let matchedPairs = 0;
 
-// Create a funtion to activate when card gets clicked
 const handleCardClick = (event) => {
-  // Stops clicks while unmatched cards are waiting to flip back.
   if (lockBoard) return;
 
   const clickedCard = event.target;
 
-  // Stops the same card being clicked twice.
   if (clickedCard === firstCard) return;
-  // Stops already matched cards being clicked again.
   if (clickedCard.classList.contains("card--matched")) return;
 
   clickedCard.querySelector("img").style.display = "block";
@@ -54,25 +40,20 @@ const handleCardClick = (event) => {
   } else {
     secondCard = clickedCard;
 
-    // count the attempt
     updateMoves();
-    // compare cards
     checkForMatch();
   }
 };
 
-//Checks for match function
 const checkForMatch = () => {
   if (firstCard.dataset.value === secondCard.dataset.value) {
     console.log("Match!");
 
-    // Add to the matched pairs when found
     firstCard.classList.add("card--matched");
     secondCard.classList.add("card--matched");
     matchedPairs++;
     checkWin();
 
-    // Reset selection so player can continue
     firstCard = null;
     secondCard = null;
   } else {
@@ -80,7 +61,6 @@ const checkForMatch = () => {
 
     lockBoard = true;
 
-    // Flip cards back after 1 second
     setTimeout(() => {
       firstCard.querySelector("img").style.display = "none";
       secondCard.querySelector("img").style.display = "none";
@@ -92,39 +72,29 @@ const checkForMatch = () => {
   }
 };
 
-// Updates the move counter when user clicks
 const updateMoves = () => {
   moves++;
   document.querySelector("#moves").textContent = moves;
 };
 
-// This function creates the cards and adds them to the page.
 const createBoard = () => {
-  // Creates the full deck by calling createDeck(),
-  // Also activates the function to shuffle the cards
   const deck = shuffleCards(createDeck());
 
-  // forEach lets us go through each item in the deck one at a time.
   deck.forEach((cardValue) => {
-    // Create a button element for each card.
     const card = document.createElement("button");
 
-    // Adds the class "card" so we can style it in SCSS.
     card.classList.add("card");
 
-    // Stores the real card value inside a data attribute.
     card.dataset.value = cardValue;
 
     card.innerHTML = `<img src="${cardValue}" alt="Pokemon card">`;
 
-    // Adds the finished card to the game grid in the HTML.
     gameGrid.appendChild(card);
 
     card.addEventListener("click", handleCardClick);
   });
 };
 
-// This creates a win message when the game is completed
 const checkWin = () => {
   if (matchedPairs === cardValues.length) {
     document.querySelector("#message").textContent =
@@ -135,41 +105,23 @@ const checkWin = () => {
 const restartButton = document.querySelector("#restartButton");
 
 const restartGame = () => {
-  // Reset selected cards
   firstCard = null;
   secondCard = null;
 
-  // Reset move counter
   moves = 0;
 
-  // Unlock the board
   lockBoard = false;
 
-  // Update moves display back to 0
   document.querySelector("#moves").textContent = moves;
 
-  // Clear all cards from the grid
   gameGrid.innerHTML = "";
 
-  // Create a brand new shuffled board
   createBoard();
 
-  // Resets the pair counter to 0
   matchedPairs = 0;
   document.querySelector("#message").textContent = "";
 };
 
-// Add click event AFTER function exists
 restartButton.addEventListener("click", restartGame);
 
-// This starts the game board creation when the page loads.
 createBoard();
-
-// include precise wording for the correct functions
-// make sure to know the level of detail for different audiences
-// highlighting parts of code is useful for explaining the code
-// clear up comments when pushing it to github
-// add the comments to the ReadMe
-
-// add images to the cards
-// make the button look nice
