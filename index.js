@@ -3,7 +3,12 @@ const gameGrid = document.querySelector("#gameGrid");
 
 // This array stores the unique card values.
 // Each value will later appear twice so the player can find matching pairs.
-const cardValues = ["Charmander", "Bulbasaur", "Squirtle", "Pikachu"];
+const cardValues = [
+  `Charmander.png`,
+  `Bulbasaur.png`,
+  `Squirtle.png`,
+  `Pikachu.png`,
+];
 
 // This function creates the full deck of cards.
 // We use the spread operator (...) to copy the cardValues array twice.
@@ -42,8 +47,7 @@ const handleCardClick = (event) => {
   // Stops already matched cards being clicked again.
   if (clickedCard.classList.contains("card--matched")) return;
 
-  // Checks that the first card value is the same as the second value card
-  clickedCard.textContent = clickedCard.dataset.value;
+  clickedCard.querySelector("img").style.display = "block";
 
   if (firstCard === null) {
     firstCard = clickedCard;
@@ -78,8 +82,8 @@ const checkForMatch = () => {
 
     // Flip cards back after 1 second
     setTimeout(() => {
-      firstCard.textContent = "?";
-      secondCard.textContent = "?";
+      firstCard.querySelector("img").style.display = "none";
+      secondCard.querySelector("img").style.display = "none";
 
       firstCard = null;
       secondCard = null;
@@ -111,8 +115,7 @@ const createBoard = () => {
     // Stores the real card value inside a data attribute.
     card.dataset.value = cardValue;
 
-    // Shows a question mark on the card while it is face down.
-    card.textContent = "?";
+    card.innerHTML = `<img src="${cardValue}" alt="Pokemon card">`;
 
     // Adds the finished card to the game grid in the HTML.
     gameGrid.appendChild(card);
@@ -163,11 +166,10 @@ restartButton.addEventListener("click", restartGame);
 createBoard();
 
 // include precise wording for the correct functions
-// make sure to know the level of detail for different audiences 
+// make sure to know the level of detail for different audiences
 // highlighting parts of code is useful for explaining the code
 // clear up comments when pushing it to github
 // add the comments to the ReadMe
 
-
-// add images to the cards 
+// add images to the cards
 // make the button look nice
