@@ -16,7 +16,6 @@ const shuffleCards = (deck) => {
   return deck.sort(() => Math.random() - 0.5);
 };
 
-
 let firstCard = null;
 let secondCard = null;
 let moves = 0;
@@ -27,7 +26,6 @@ const handleCardClick = (event) => {
   if (lockBoard) return;
 
   const clickedCard = event.target;
-
   if (clickedCard === firstCard) return;
   if (clickedCard.classList.contains("card--matched")) return;
 
@@ -35,39 +33,43 @@ const handleCardClick = (event) => {
 
   if (firstCard === null) {
     firstCard = clickedCard;
-  } else {
-    secondCard = clickedCard;
-
-    updateMoves();
-    checkForMatch();
+    return;
   }
+
+  secondCard = clickedCard;
+  updateMoves();
+  checkForMatch();
 };
 
+function hideCardFace(card) {
+    card.querySelector('img').style.display = 'none';
+}
+
+function markPairMatched(a, b) {
+    a.classList.add('card--matched');
+    b.classList.add('card--matched');
+}
+
 const checkForMatch = () => {
-  if (firstCard.dataset.value === secondCard.dataset.value) {
-    console.log("Match!");
+    if (!firstCard || !secondCard) return;
 
-    firstCard.classList.add("card--matched");
-    secondCard.classList.add("card--matched");
-    matchedPairs++;
-    checkWin();
-
-    firstCard = null;
-    secondCard = null;
-  } else {
-    console.log("Not a match!");
+    if (firstCard.dataset.value === secondCard.dataset.value) {
+        markPairMatched(firstCard, secondCard);
+        matchedPairs++;
+        checkWin();
+        firstCard = null;
+        secondCard = null;
+        return;
+    }
 
     lockBoard = true;
-
     setTimeout(() => {
-      firstCard.querySelector("img").style.display = "none";
-      secondCard.querySelector("img").style.display = "none";
-
-      firstCard = null;
-      secondCard = null;
-      lockBoard = false;
+        hideCardFace(firstCard);
+        hideCardFace(secondCard);
+        firstCard = null;
+        secondCard = null;
+        lockBoard = false;
     }, 1000);
-  }
 };
 
 const updateMoves = () => {
